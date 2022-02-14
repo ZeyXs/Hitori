@@ -8,7 +8,13 @@ The objective is to eliminate some squares to transform the grid to a state wher
 
 Red cell: Eliminated  
 Green cell: Considered as safe  
-White cell: Neutral  
+White cell: Neutral
+
+##### Buttons
+- Left -> Confirm and check if you won
+- Middle -> Pause the game & timer
+- Right -> Click to reset all cells to white or Shift+Click to get another board
+
 
 ### Rules
   1. No row or column can have more than one occurence of any number
