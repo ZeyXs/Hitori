@@ -5,8 +5,11 @@ Hitori game in Python, made as a class project
 ## How to play
 The objective is to eliminate some squares to transform the grid to a state where all the three rules are respected
 
+
 Red cell: Eliminated
+
 Green cell: Considered as safe
+
 White cell: Neutral
 
 ### Rules
