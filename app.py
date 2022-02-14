@@ -33,7 +33,8 @@ pause_title_rect = pygame.Rect(0, 0, 500, 500)
 #        [[1, -1], [3, -1], [5, -1], [4, -1], [2, -1]],
 #        [[5, -1], [4, -1], [3, -1], [2, -1], [1, -1]]]
 
-grid = scrap_boards.get_a_board(size=5)
+grid_size = 5
+grid = scrap_boards.get_a_board(size=grid_size)
 
 def main():
     pygame.display.set_caption(utils.NAME)
@@ -47,6 +48,7 @@ def main():
     
     while running:
         # Event Listener
+        keys = pygame.key.get_pressed()
         for event in pygame.event.get():
             left, middle, right = pygame.mouse.get_pressed()
 
@@ -79,6 +81,8 @@ def main():
                                     button[1] = 1
                                     pause = True
                             elif buttons.index(button) == 2: # if reset
+                                if keys[pygame.K_LSHIFT]: # If hard-reset                                else:
+                                    changeGrid()
                                 resetGrid()
                                 reset_animation = True
                                 button[1] = 1
@@ -238,6 +242,11 @@ def resetGrid():
         for column in range(len(grid)):
             grid[row][column][1] = -1
     print(grid)
+
+def changeGrid():
+    global grid, grid_size
+    grid = scrap_boards.get_a_board(size=grid_size)
+    
 
 def resetButtonAnimation():
     global reset_animation
