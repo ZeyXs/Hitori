@@ -244,9 +244,10 @@ def resetGrid():
     print(grid)
 
 def changeGrid():
-    global grid, grid_size
+    global grid, grid_size, timer
     grid = scrap_boards.get_a_board(size=grid_size)
-    
+    timer = 0
+
 
 def resetButtonAnimation():
     global reset_animation
