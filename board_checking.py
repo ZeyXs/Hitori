@@ -27,24 +27,24 @@ class CheckingBoard:
 		if self.recursive_spread((0,0)) != self.total_case-self.checked_case:
 			self.reset_board()
 			print(self.recursive_spread((0,0)), self.total_case, self.checked_case, self.total_case-self.checked_case)
-			self.is_invalid("Unable to spread everywhere")
+			return self.is_invalid("Unable to spread everywhere")
 		else:
 			self.reset_board()
 			# Check if there's no two checked case neighbor
 			if not self.recursive_check_neighbors((0,0)):
-				self.is_invalid("At least 2 checked case are neighbors...")
+				return self.is_invalid("At least 2 checked case are neighbors...")
 			else:
 				self.reset_board()
 				# Check if there's no not-checked doublon in same line
 				if not self.recursive_check_for_doublon_on_line():
-					self.is_invalid("There's a doublon in a line somewhere")
+					return self.is_invalid("There's a doublon in a line somewhere")
 				else:
 					self.reset_board()
 					# Check if there's no not-checked doublon in same column
 					if not self.recursive_check_for_doublon_on_column():
-						self.is_invalid("There's a doublon in a column somwhere")
+						return self.is_invalid("There's a doublon in a column somewhere")
 					else:
-						self.is_valid()
+						return self.is_valid()
 
 	def reset_board(self):
 		self.board = deepcopy(self.submitted_board)
@@ -67,11 +67,9 @@ class CheckingBoard:
 		print()
 
 	def is_invalid(self, err_msg):
-		print("you suck bro because", err_msg)
 		return False, err_msg
 
 	def is_valid(self):
-		print("yea bro gg")
 		return True, None
 
 
@@ -228,5 +226,5 @@ board_to_check = [ #WORKING
 ]
 
 #b = CheckingBoard(board_to_check)
-#b.start()
+#x,y = b.start()
 
