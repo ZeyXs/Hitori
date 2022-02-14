@@ -29,3 +29,6 @@ MARGIN = 10
 FONT = pygame.font.Font("resources/font/Pixeled.ttf", 22)
 FONT_TIMER = pygame.font.Font("resources/font/Pixeled.ttf", 15)
 FONT_PAUSED = pygame.font.Font("resources/font/Pixeled.ttf", 30)
+
+# --- TEXT ---
+VICTORY_TITLE = "You have won!"

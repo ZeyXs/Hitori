@@ -227,4 +227,3 @@ board_to_check = [ #WORKING
 
 #b = CheckingBoard(board_to_check)
 #x,y = b.start()
-

@@ -2,6 +2,8 @@ import pygame
 import pygame.gfxdraw
 import constants as utils
 import time
+import scrap_boards
+import board_checking
 
 pygame.display.init()
 clock = pygame.time.Clock()
@@ -14,6 +16,8 @@ time_elapsed_check = 0
 reset_animation = False
 check_animation = False
 timer = 0
+victory = None
+title = utils.VICTORY_TITLE
 
 
 cells = []
@@ -103,7 +107,8 @@ def main():
         resetButtonAnimation()
         checkButtonAnimation()
 
-        printTitle("Victoire! c'est génial mec", True, screen)
+        if victory != None:
+            printTitle(title, victory, screen)
 
         if pause == True:
             setInPause(screen)
@@ -204,7 +209,15 @@ def drawButton(screen):
         screen.blit(check_pressed, (x - 80, y))
 
 def checkGrid(grid:list):
+    global title
+    global victory
     print("Checking...")
+    board = board_checking.CheckingBoard(grid)
+    is_correct, msg = board.start()
+
+    if is_correct == False:
+        title = msg
+    victory = is_correct
     buttons[0][1] = 0
 
 def setInPause(screen):
@@ -256,7 +269,6 @@ def printTitle(text, type, screen):
     text_rect = text.get_rect()
     text_rect.center = pygame.Rect(0, 55, utils.HEIGHT, 50).center
     screen.blit(text, text_rect)
-
 
 def convertGridCoord(cell):
     x_cell = (cell[0] - 103) / 60
