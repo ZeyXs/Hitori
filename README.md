@@ -6,11 +6,9 @@ Hitori game in Python, made as a class project
 The objective is to eliminate some squares to transform the grid to a state where all the three rules are respected
 
 
-Red cell: Eliminated
-
-Green cell: Considered as safe
-
-White cell: Neutral
+Red cell: Eliminated  
+Green cell: Considered as safe  
+White cell: Neutral  
 
 ### Rules
   1. No row or column can have more than one occurence of any number
