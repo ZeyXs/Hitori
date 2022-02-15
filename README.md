@@ -10,7 +10,7 @@ Red cell: Eliminated
 Green cell: Considered as safe  
 White cell: Neutral
 
-##### Buttons
+### Buttons
 - Left -> Confirm and check if you won
 - Middle -> Pause the game & timer
 - Right -> Click to reset all cells to white or Shift+Click to get another board
