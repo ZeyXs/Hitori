@@ -1,5 +1,5 @@
 # Hitori
-Hitori game in Python, made as a class project
+Hitori game in Python, made as a class project (NSI)
 
 
 ## How to play
