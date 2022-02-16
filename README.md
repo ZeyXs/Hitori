@@ -30,4 +30,4 @@ White cell: Neutral
 
 
 ## Credits
-Thought and developed by [@ZeyXs](https://github.com/ZeyXs), [@ghrlt](https://github.com/ghrlt) and Laure.
+Thought and developed by [@ZeyXs](https://github.com/ZeyXs), [@ghrlt](https://github.com/ghrlt) and [@myaalicewendy](https://github.com/myaalicewendy)  
