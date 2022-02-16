@@ -56,46 +56,46 @@ def main():
                 running = False
 
             pos = pygame.mouse.get_pos()
-            if left or middle:
-                if victory == None or victory == False:
-                    for cell in cells:
-                        if cell.collidepoint(pos):
-                            x,y = convertGridCoord(cell)
-                            if grid[y][x][1] == -1: #blank
-                                grid[y][x][1] = 0
-                            elif grid[y][x][1] == 0: #red
-                                grid[y][x][1] = 1
-                            elif grid[y][x][1] == 1: #green
-                                grid[y][x][1] = -1
-                    for button in buttons:
-                        if button[0].collidepoint(pos):
-                            if button[1] == 0:
-                                buttons[0][1] = 0
-                                buttons[1][1] = 0
-                                buttons[2][1] = 0
-                                if buttons.index(button) == 0: # if check
-                                    checkGrid(grid)
-                                    check_animation = True
-                                    button[1] = 1
-                                elif buttons.index(button) == 1: # if pause
-                                    if pause == False:
+            if victory == None or victory == False:
+                if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                        for cell in cells:
+                            if cell.collidepoint(pos):
+                                x,y = convertGridCoord(cell)
+                                if grid[y][x][1] == -1: #blank
+                                    grid[y][x][1] = 0
+                                elif grid[y][x][1] == 0: #red
+                                    grid[y][x][1] = 1
+                                elif grid[y][x][1] == 1: #green
+                                    grid[y][x][1] = -1
+                        for button in buttons:
+                            if button[0].collidepoint(pos):
+                                if button[1] == 0:
+                                    buttons[0][1] = 0
+                                    buttons[1][1] = 0
+                                    buttons[2][1] = 0
+                                    if buttons.index(button) == 0: # if check
+                                        checkGrid(grid)
+                                        check_animation = True
                                         button[1] = 1
-                                        pause = True
-                                elif buttons.index(button) == 2: # if reset
-                                    if keys[pygame.K_LSHIFT]: # If hard-reset                                else:
-                                        changeGrid()
-                                    resetGrid()
-                                    reset_animation = True
-                                    button[1] = 1
-                            else:
-                                if buttons.index(button) == 2:
-                                    if pause == False:
-                                        button[1] = 0
-                    if pause and pause_title_rect.collidepoint(pos) and buttons[1][0].collidepoint(pos) == False:
-                        pause = False
-                        buttons[1][1] = 0
+                                    elif buttons.index(button) == 1: # if pause
+                                        if pause == False:
+                                            button[1] = 1
+                                            pause = True
+                                    elif buttons.index(button) == 2: # if reset
+                                        if keys[pygame.K_LSHIFT]: # If hard-reset                                else:
+                                            changeGrid()
+                                        resetGrid()
+                                        reset_animation = True
+                                        button[1] = 1
+                                else:
+                                    if buttons.index(button) == 2:
+                                        if pause == False:
+                                            button[1] = 0
+                        if pause and pause_title_rect.collidepoint(pos) and buttons[1][0].collidepoint(pos) == False:
+                            pause = False
+                            buttons[1][1] = 0
 
-                if right:
+                if event.type == pygame.MOUSEBUTTONDOWN and event.button == 3:
                     for cell in cells:
                         if cell.collidepoint(pos):
                             x,y = convertGridCoord(cell)
