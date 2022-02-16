@@ -1,0 +1,4 @@
+termcolor
+colorama
+beautifulsoup4
+requests
