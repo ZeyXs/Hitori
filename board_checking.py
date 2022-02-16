@@ -15,31 +15,28 @@ class CheckingBoard:
 		self.board = deepcopy(board)
 		self.submitted_board = deepcopy(self.board)
 
-		self.WALKED_ON = []
-
 		self.total_case = len(self.board)*len(self.board) #On admet que la board est carré...
 		self.checked_case = len([case for line in self.board for case in line if case[1] == 0])
 
 	def start(self):
-		#self.show()
-
 		# Check if we can spread everywhere (no case separated from the group)
 		if self.recursive_spread((0,0)) != self.total_case-self.checked_case:
-			self.reset_board()
-			#print(self.recursive_spread((0,0)), self.total_case, self.checked_case, self.total_case-self.checked_case)
 			return self.is_invalid("Unable to spread everywhere")
 		else:
 			self.reset_board()
+			
 			# Check if there's no two checked case neighbor
 			if not self.recursive_check_neighbors((0,0)):
 				return self.is_invalid("At least 2 checked case are neighbors...")
 			else:
 				self.reset_board()
+				
 				# Check if there's no not-checked doublon in same line
 				if not self.recursive_check_for_doublon_on_line():
 					return self.is_invalid("There's a doublon in a line somewhere")
 				else:
 					self.reset_board()
+					
 					# Check if there's no not-checked doublon in same column
 					if not self.recursive_check_for_doublon_on_column():
 						return self.is_invalid("There's a doublon in a column somewhere")
@@ -61,8 +58,6 @@ class CheckingBoard:
 					print(c(col[0], "red"), end=" ")
 				elif col[1] == 1:
 					print(c(col[0], "green"), end=" ")
-				elif col[1] == 69:
-					print(c(col[0], "magenta"), end=" ")
 			print()
 		print()
 
@@ -116,10 +111,6 @@ class CheckingBoard:
 			self.board[px][py][1] = 69
 			total += 1
 
-
-		#print("J'ai", "pas" if not pos in self.WALKED_ON else '', "marché dessus", pos)
-		#self.WALKED_ON.append(pos)
-		#self.show()
 
 		neighborhood = self.has_neighbors(px,py, state=False, notstate=0)
 		if neighborhood:
