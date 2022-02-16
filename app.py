@@ -28,12 +28,6 @@ init_list = False
 pause = False
 pause_title_rect = pygame.Rect(0, 0, 500, 500)
 
-#grid = [[[2, -1], [2, -1], [1, -1], [5, -1], [3, -1]],
-#        [[2, -1], [3, -1], [1, -1], [4, -1], [5, -1]],
-#        [[1, -1], [1, -1], [1, -1], [3, -1], [5, -1]],
-#        [[1, -1], [3, -1], [5, -1], [4, -1], [2, -1]],
-#        [[5, -1], [4, -1], [3, -1], [2, -1], [1, -1]]]
-
 grid_size = 5
 grid = scrap_boards.get_a_board(size=grid_size)
 
@@ -72,8 +66,9 @@ def main():
                                     grid[y][x][1] = -1
                         for button in buttons:
                             if button[0].collidepoint(pos):
-                                utils.CLICK_SOUND.play()
-                                utils.CLICK_SOUND.set_volume(0.2)
+                                if pause == False:
+                                    utils.CLICK_SOUND.play()
+                                    utils.CLICK_SOUND.set_volume(0.2)
                                 if button[1] == 0:
                                     buttons[0][1] = 0
                                     buttons[1][1] = 0
