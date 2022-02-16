@@ -238,6 +238,7 @@ def checkGrid(grid:list):
     else:
         title = utils.VICTORY_TITLE
         utils.SUCESS_SOUND.play()
+        utils.SUCESS_SOUND.set_volume(0.5)
     victory = is_correct
     print("Checked:", title)
     buttons[0][1] = 0
