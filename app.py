@@ -6,6 +6,7 @@ import scrap_boards
 import board_checking
 
 pygame.display.init()
+pygame.mixer.init()
 clock = pygame.time.Clock()
 animation = pygame.time.Clock()
 animation2 = pygame.time.Clock()
@@ -61,6 +62,8 @@ def main():
                         for cell in cells:
                             if cell.collidepoint(pos):
                                 x,y = convertGridCoord(cell)
+                                utils.POP_SOUND.play()
+                                utils.POP_SOUND.set_volume(0.5)
                                 if grid[y][x][1] == -1: #blank
                                     grid[y][x][1] = 0
                                 elif grid[y][x][1] == 0: #red
@@ -69,6 +72,8 @@ def main():
                                     grid[y][x][1] = -1
                         for button in buttons:
                             if button[0].collidepoint(pos):
+                                utils.CLICK_SOUND.play()
+                                utils.CLICK_SOUND.set_volume(0.2)
                                 if button[1] == 0:
                                     buttons[0][1] = 0
                                     buttons[1][1] = 0
@@ -98,6 +103,8 @@ def main():
                 if event.type == pygame.MOUSEBUTTONDOWN and event.button == 3:
                     for cell in cells:
                         if cell.collidepoint(pos):
+                            utils.POP_SOUND.play()
+                            utils.POP_SOUND.set_volume(0.5)
                             x,y = convertGridCoord(cell)
                             if grid[y][x][1] == -1: #blank
                                 grid[y][x][1] = 1
@@ -226,8 +233,11 @@ def checkGrid(grid:list):
     if is_correct == False:
         title = msg
         victory = None
+        utils.ERROR_SOUND.play()
+        utils.ERROR_SOUND.set_volume(0.3)
     else:
         title = utils.VICTORY_TITLE
+        utils.SUCESS_SOUND.play()
     victory = is_correct
     print("Checked:", title)
     buttons[0][1] = 0
@@ -253,9 +263,9 @@ def resetGrid():
 
 def changeGrid():
     global grid, grid_size, timer
+    print("Loading new grid...")
     grid = scrap_boards.get_a_board(size=grid_size)
     timer = 0
-
 
 def resetButtonAnimation():
     global reset_animation

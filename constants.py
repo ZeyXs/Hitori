@@ -1,7 +1,9 @@
 import pygame
 import os
 import sys
+
 pygame.font.init()
+pygame.mixer.init()
 
 if getattr(sys, 'frozen', False):
     wd = sys._MEIPASS
@@ -50,3 +52,9 @@ FONT_PAUSED = pygame.font.Font("resources/font/Pixeled.ttf", 30)
 
 # --- TEXT ---
 VICTORY_TITLE = "You have won!"
+
+# --- SOUNDS ---
+ERROR_SOUND = pygame.mixer.Sound("resources/sounds/error.ogg")
+SUCESS_SOUND = pygame.mixer.Sound("resources/sounds/success.ogg")
+CLICK_SOUND = pygame.mixer.Sound("resources/sounds/click.ogg")
+POP_SOUND = pygame.mixer.Sound("resources/sounds/pop.ogg")
