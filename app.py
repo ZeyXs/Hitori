@@ -229,6 +229,7 @@ def checkGrid(grid:list):
     else:
         title = utils.VICTORY_TITLE
     victory = is_correct
+    print("Checked:", title)
     buttons[0][1] = 0
 
 def setInPause(screen):
@@ -243,10 +244,12 @@ def setInPause(screen):
 
 def resetGrid():
     global grid
+    global victory
     for row in range(len(grid)):
         for column in range(len(grid)):
             grid[row][column][1] = -1
-    print(grid)
+    victory = None
+    print("Reset.")
 
 def changeGrid():
     global grid, grid_size, timer
@@ -282,7 +285,7 @@ def printTitle(text, type, screen):
     color = (9, 237, 32)
     if type == False:
         color = (255, 0, 0)
-    text = utils.FONT_TIMER.render(text, False, color)
+    text = utils.FONT_TITLE.render(text, False, color)
     text_rect = text.get_rect()
     text_rect.center = pygame.Rect(0, 55, utils.HEIGHT, 50).center
     screen.blit(text, text_rect)

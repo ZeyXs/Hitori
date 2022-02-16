@@ -8,7 +8,7 @@ def get_a_board(size: int=5):
 
 	rawboard = soup.find("table", {"id": "puzzleTable"})
 	if not rawboard: #Sometimes, even though the page is returned, board isn't found (frequency is random)
-		print('retrying getting the board')
+		print('Retrying getting the board...')
 		return get_a_board()
 
 	board = []

@@ -45,6 +45,7 @@ MARGIN = 10
 # --- FONT ---
 FONT = pygame.font.Font("resources/font/Pixeled.ttf", 22)
 FONT_TIMER = pygame.font.Font("resources/font/Pixeled.ttf", 15)
+FONT_TITLE = pygame.font.Font("resources/font/Pixeled.ttf", 14)
 FONT_PAUSED = pygame.font.Font("resources/font/Pixeled.ttf", 30)
 
 # --- TEXT ---

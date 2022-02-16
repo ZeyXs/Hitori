@@ -21,12 +21,12 @@ class CheckingBoard:
 		self.checked_case = len([case for line in self.board for case in line if case[1] == 0])
 
 	def start(self):
-		self.show()
+		#self.show()
 
 		# Check if we can spread everywhere (no case separated from the group)
 		if self.recursive_spread((0,0)) != self.total_case-self.checked_case:
 			self.reset_board()
-			print(self.recursive_spread((0,0)), self.total_case, self.checked_case, self.total_case-self.checked_case)
+			#print(self.recursive_spread((0,0)), self.total_case, self.checked_case, self.total_case-self.checked_case)
 			return self.is_invalid("Unable to spread everywhere")
 		else:
 			self.reset_board()
