@@ -12,7 +12,7 @@ colorama.init()
 
 class CheckingBoard:
 	def __init__(self, board):
-		self.board = board
+		self.board = deepcopy(board)
 		self.submitted_board = deepcopy(self.board)
 
 		self.WALKED_ON = []

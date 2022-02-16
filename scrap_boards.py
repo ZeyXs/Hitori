@@ -7,7 +7,9 @@ def get_a_board(size: int=5):
 	soup = BeautifulSoup(r.content, "html.parser")
 
 	rawboard = soup.find("table", {"id": "puzzleTable"})
-
+	if not rawboard: #Sometimes, even though the page is returned, board isn't found (frequency is random)
+		print('retrying getting the board')
+		return get_a_board()
 
 	board = []
 	for i, line in enumerate(rawboard.find_all("tr")):
