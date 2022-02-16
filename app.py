@@ -225,6 +225,7 @@ def checkGrid(grid:list):
 
     if is_correct == False:
         title = msg
+        victory = None
     victory = is_correct
     buttons[0][1] = 0
 
