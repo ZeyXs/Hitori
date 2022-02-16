@@ -21,7 +21,7 @@ class CheckingBoard:
 	def start(self):
 		# Check if we can spread everywhere (no case separated from the group)
 		if self.recursive_spread((0,0)) != self.total_case-self.checked_case:
-			return self.is_invalid("Unable to spread everywhere")
+			return self.is_invalid("Not all white cells are contiguous!")
 		else:
 			self.reset_board()
 			
