@@ -21,25 +21,25 @@ class CheckingBoard:
 	def start(self):
 		# Check if we can spread everywhere (no case separated from the group)
 		if self.recursive_spread((0,0)) != self.total_case-self.checked_case:
-			return self.is_invalid("Not all white cells are contiguous!")
+			return self.is_invalid("NOT ALL WHITE CELLS ARE CONTIGUOUS!")
 		else:
 			self.reset_board()
 			
 			# Check if there's no two checked case neighbor
 			if not self.recursive_check_neighbors((0,0)):
-				return self.is_invalid("At least 2 checked case are neighbors...")
+				return self.is_invalid("AT LEAST 2 CHECKED CASE ARE NEIGHBORS")
 			else:
 				self.reset_board()
 				
 				# Check if there's no not-checked doublon in same line
 				if not self.recursive_check_for_doublon_on_line():
-					return self.is_invalid("There's a doublon in a line somewhere")
+					return self.is_invalid("THERE'S A DOUBLON IN A LINE SOMEWHERE")
 				else:
 					self.reset_board()
 					
 					# Check if there's no not-checked doublon in same column
 					if not self.recursive_check_for_doublon_on_column():
-						return self.is_invalid("There's a doublon in a column somewhere")
+						return self.is_invalid("THERE'S A DOUBLON IN A COLUMN SOMEWHERE")
 					else:
 						return self.is_valid()
 

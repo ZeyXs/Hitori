@@ -51,7 +51,7 @@ FONT_TITLE = pygame.font.Font("resources/font/Pixeled.ttf", 14)
 FONT_PAUSED = pygame.font.Font("resources/font/Pixeled.ttf", 30)
 
 # --- TEXT ---
-VICTORY_TITLE = "You have won!"
+VICTORY_TITLE = "YOU HAVE WON!"
 
 # --- SOUNDS ---
 ERROR_SOUND = pygame.mixer.Sound("resources/sounds/error.ogg")
