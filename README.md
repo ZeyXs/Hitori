@@ -13,7 +13,7 @@ White cell: Neutral
 ### Buttons
 - Left -> Confirm and check if you won
 - Middle -> Pause the game & timer
-- Right -> Click to reset all cells to white or Shift+Click to get another board
+- Right -> Click to reset all cells to white, restart after winning or Shift+Click to get another board and
 
 
 ### Rules
